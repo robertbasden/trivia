@@ -1,6 +1,7 @@
 {
   "name": "trivia",
   "version": "0.1.0",
+  "homepage": "https://robertbasden.github.io/trivia",
   "private": true,
   "dependencies": {
     "axios": "^0.17.1",
