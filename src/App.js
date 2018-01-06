@@ -4,11 +4,15 @@ import { connect, Provider } from 'react-redux';
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 
-import { Game, reducer as gameReducer, startGame, correctAnswerClicked, incorrectAnswerClicked } from './Game';
+import { Game, reducer as gameReducer, startGame, setHighScore, correctAnswerClicked, incorrectAnswerClicked } from './Game';
 
 const reducers = combineReducers({ game: gameReducer })
 let store = createStore(reducers, applyMiddleware(logger, thunk));
 
+var highScore = localStorage.getItem("highScore");
+if(highScore != undefined) {
+  store.dispatch(setHighScore(highScore));
+}
 store.dispatch(startGame());
 
 const mapDispatchToProps = (dispatch) => {
